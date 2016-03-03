@@ -30,6 +30,18 @@ app.get('/', function (req, res) {
   });
 });
 
+app.get('/hello', function (req, res) {
+  res.render('index', {
+    title: 'Hello express',
+    test: connection.query('SELECT * FROM users'),
+    items: [
+      { id:1, desc: 'ololo'},
+      { id:2, desc: 'atata'},
+      { id:3, desc: 'omnomnomn'}
+    ]
+  });
+});
+
 app.listen(8080, function () {
   console.log('ready');
 });
